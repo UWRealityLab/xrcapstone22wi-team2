@@ -43,7 +43,7 @@ namespace MedicalVisualizer
 
         public DICOMImporter(IEnumerable<string> files, string name = "DICOM_Dataset")
         {
-            this.fileCandidates = files;
+            fileCandidates = files;
             datasetName = name;
         }
 

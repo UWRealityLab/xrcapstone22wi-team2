@@ -14,6 +14,12 @@ namespace MedicalVisualizer
         /// </summary>
         public VolumeRenderedObject targetObject;
 
+        public GameObject sphere1;
+
+        public GameObject sphere2;
+
+        public GameObject sphere3;
+
         private void OnDisable()
         {
             if (targetObject != null)
@@ -29,6 +35,13 @@ namespace MedicalVisualizer
 
             mat.EnableKeyword("CUTOUT_PLANE");
             mat.SetMatrix("_CrossSectionMatrix", transform.worldToLocalMatrix * targetObject.transform.localToWorldMatrix);
+            Vector3 ab = sphere1.transform.position - sphere2.transform.position;
+            Vector3 bc = sphere2.transform.position - sphere3.transform.position;
+
+            Vector3 center = (sphere1.transform.position + sphere2.transform.position + sphere3.transform.position) / 3;
+            Vector3 direction = Vector3.Cross(ab, bc);
+            transform.rotation = Quaternion.LookRotation(-direction);
+            transform.position = center;
         }
     }
 }

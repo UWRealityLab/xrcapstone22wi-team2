@@ -1,0 +1,165 @@
+
+# Dicom-File-Format
+
+# Dicom-Meta-Information-Header
+# Used TransferSyntax: Little Endian Explicit
+(0002,0000) UL 192                                      #   4, 1 FileMetaInformationGroupLength
+(0002,0001) OB 00\01                                    #   2, 1 FileMetaInformationVersion
+(0002,0002) UI =CTImageStorage                          #  26, 1 MediaStorageSOPClassUID
+(0002,0003) UI [1.2.840.113704.1.1762661675.1307.1035486774.1154] #  48, 1 MediaStorageSOPInstanceUID
+(0002,0010) UI =LittleEndianExplicit                    #  20, 1 TransferSyntaxUID
+(0002,0012) UI [1.2.276.0.7230010.3.0.3.5.0]            #  28, 1 ImplementationClassUID
+(0002,0013) SH [OFFIS_DCMTK_350]                        #  16, 1 ImplementationVersionName
+
+# Dicom-Data-Set
+# Used TransferSyntax: Little Endian Explicit
+(0008,0008) CS [ORIGINAL\PRIMARY\AXIAL\HELIX]           #  28, 4 ImageType
+(0008,0012) DA [20021024]                               #   8, 1 InstanceCreationDate
+(0008,0013) TM [121254]                                 #   6, 1 InstanceCreationTime
+(0008,0016) UI =CTImageStorage                          #  26, 1 SOPClassUID
+(0008,0018) UI [1.2.840.113704.1.1762661675.1307.1035486774.1154] #  48, 1 SOPInstanceUID
+(0008,0020) DA [20021024]                               #   8, 1 StudyDate
+(0008,0022) DA [20021024]                               #   8, 1 AcquisitionDate
+(0008,0023) DA [20021024]                               #   8, 1 ContentDate
+(0008,0030) TM [120910]                                 #   6, 1 StudyTime
+(0008,0032) TM [121250]                                 #   6, 1 AcquisitionTime
+(0008,0033) TM [121251.521000]                          #  14, 1 ContentTime
+(0008,0050) SH (no value available)                     #   0, 0 AccessionNumber
+(0008,0060) CS [CT]                                     #   2, 1 Modality
+(0008,0070) LO [Marconi]                                #   8, 1 Manufacturer
+(0008,0080) LO [2nd Hosp. of J.L. U.]                   #  20, 1 InstitutionName
+(0008,0081) ST [ChangChun, China]                       #  16, 1 InstitutionAddress
+(0008,0090) PN (no value available)                     #   0, 0 ReferringPhysicianName
+(0008,1010) SH [Mx8000]                                 #   6, 1 StationName
+(0008,1030) LO (no value available)                     #   0, 0 StudyDescription
+(0008,1040) LO [Radiology]                              #  10, 1 InstitutionalDepartmentName
+(0008,1070) PN [Twin-7180]                              #  10, 1 OperatorsName
+(0008,1090) LO [Mx8000D]                                #   8, 1 ManufacturerModelName
+(0010,0010) PN [WANG BAO ^28]                           #  12, 1 PatientName
+(0010,0020) LO [200233333]                              #  10, 1 PatientID
+(0010,0030) DA (no value available)                     #   0, 0 PatientBirthDate
+(0010,0040) CS [M]                                      #   2, 1 PatientSex
+(0010,1010) AS (no value available)                     #   0, 0 PatientAge
+(0018,0010) LO [CONTRAST]                               #   8, 1 ContrastBolusAgent
+(0018,0022) CS [HELIX]                                  #   6, 1 ScanOptions
+(0018,0050) DS [1.3]                                    #   4, 1 SliceThickness
+(0018,0060) DS [120]                                    #   4, 1 KVP
+(0018,0088) DS [0.6]                                    #   4, 1 SpacingBetweenSlices
+(0018,0090) DS [250]                                    #   4, 1 DataCollectionDiameter
+(0018,1020) LO [2.2]                                    #   4, 1 SoftwareVersions
+(0018,1030) LO [C.O.W/Head/Hx]                          #  14, 1 ProtocolName
+(0018,1040) LO [IV]                                     #   2, 1 ContrastBolusRoute
+(0018,1041) DS [100]                                    #   4, 1 ContrastBolusVolume
+(0018,1046) DS [3.5]                                    #   4, 1 ContrastFlowRate
+(0018,1047) DS [28.5714283]                             #  10, 1 ContrastFlowDuration
+(0018,1049) DS [300.0]                                  #   6, 1 ContrastBolusIngredientConcentration
+(0018,1100) DS [250]                                    #   4, 1 ReconstructionDiameter
+(0018,1120) DS [0]                                      #   2, 1 GantryDetectorTilt
+(0018,1130) DS [230]                                    #   4, 1 TableHeight
+(0018,1140) CS [CW]                                     #   2, 1 RotationDirection
+(0018,1151) IS [380]                                    #   4, 1 XRayTubeCurrent
+(0018,1152) IS [300]                                    #   4, 1 Exposure
+(0018,1160) SH [B]                                      #   2, 1 FilterType
+(0018,1210) SH [B]                                      #   2, 1 ConvolutionKernel
+(0018,5100) CS [HFS]                                    #   4, 1 PatientPosition
+(0020,000d) UI [1.2.840.113704.1.1762661675.1430.1035486490.38] #  46, 1 StudyInstanceUID
+(0020,000e) UI [1.2.840.113704.1.1762661675.10130.1035486722.6] #  46, 1 SeriesInstanceUID
+(0020,0010) SH [1135]                                   #   4, 1 StudyID
+(0020,0011) IS [685]                                    #   4, 1 SeriesNumber
+(0020,0012) IS (no value available)                     #   0, 0 AcquisitionNumber
+(0020,0013) IS [1]                                      #   2, 1 InstanceNumber
+(0020,0032) DS [-125\-76\-689]                          #  14, 3 ImagePositionPatient
+(0020,0037) DS [1\0\0\0\1\0]                            #  12, 6 ImageOrientationPatient
+(0020,0052) UI [1.2.840.113704.1.1762661675.10130.1035486577.3] #  46, 1 FrameOfReferenceUID
+(0020,0060) CS (no value available)                     #   0, 0 Laterality
+(0020,1040) LO (no value available)                     #   0, 0 PositionReferenceIndicator
+(0020,1041) DS [118.50]                                 #   6, 1 SliceLocation
+(0028,0002) US 1                                        #   2, 1 SamplesPerPixel
+(0028,0004) CS [MONOCHROME2]                            #  12, 1 PhotometricInterpretation
+(0028,0010) US 512                                      #   2, 1 Rows
+(0028,0011) US 512                                      #   2, 1 Columns
+(0028,0030) DS [0.48828125\0.48828125]                  #  22, 2 PixelSpacing
+(0028,0100) US 16                                       #   2, 1 BitsAllocated
+(0028,0101) US 12                                       #   2, 1 BitsStored
+(0028,0102) US 11                                       #   2, 1 HighBit
+(0028,0103) US 0                                        #   2, 1 PixelRepresentation
+(0028,1050) DS [00060\00060]                            #  12, 2 WindowCenter
+(0028,1051) DS [00500\00500]                            #  12, 2 WindowWidth
+(0028,1052) DS [-1000]                                  #   6, 1 RescaleIntercept
+(0028,1053) DS [1]                                      #   2, 1 RescaleSlope
+(0088,0200) SQ (Sequence with explicit length #=1)      # 4218, 1 IconImageSequence
+  (fffe,e000) na (Item with explicit length #=10)         # 4210, 1 Item
+    (0028,0002) US 1                                        #   2, 1 SamplesPerPixel
+    (0028,0004) CS [MONOCHROME2]                            #  12, 1 PhotometricInterpretation
+    (0028,0010) US 64                                       #   2, 1 Rows
+    (0028,0011) US 64                                       #   2, 1 Columns
+    (0028,0034) IS [1\1]                                    #   4, 2 PixelAspectRatio
+    (0028,0100) US 8                                        #   2, 1 BitsAllocated
+    (0028,0101) US 8                                        #   2, 1 BitsStored
+    (0028,0102) US 7                                        #   2, 1 HighBit
+    (0028,0103) US 0                                        #   2, 1 PixelRepresentation
+    (7fe0,0010) OB 00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00... # 4096, 1 PixelData
+  (fffe,e00d) na (ItemDelimitationItem for re-encoding)   #   0, 0 ItemDelimitationItem
+(fffe,e0dd) na (SequenceDelimitationItem for re-encod.) #   0, 0 SequenceDelimitationItem
+(00e1,0010) LO [ELSCINT1]                               #   8, 1 PrivateCreator
+(00e1,1001) US 1                                        #   2, 1 Unknown Tag & Data
+(00e1,1022) DS [00000\00000]                            #  12, 2 Unknown Tag & Data
+(00e1,1023) DS [00001\00001]                            #  12, 2 Unknown Tag & Data
+(00e1,1040) SH (no value available)                     #   0, 0 Unknown Tag & Data
+(00e1,1050) DS [23.44]                                  #   6, 1 Unknown Tag & Data
+(00e1,1061) LO [Head_surview_1_nom.proc]                #  24, 1 Unknown Tag & Data
+(00e1,1063) SH [ENGLISH]                                #   8, 1 Unknown Tag & Data
+(01f1,0010) LO [ELSCINT1]                               #   8, 1 PrivateCreator
+(01f1,1001) CS [SPIRAL]                                 #   6, 1 Unknown Tag & Data
+(01f1,1002) CS [STANDARD]                               #   8, 1 Unknown Tag & Data
+(01f1,1003) CS [DUAL]                                   #   4, 1 Unknown Tag & Data
+(01f1,1004) CS [NORMAL]                                 #   6, 1 Unknown Tag & Data
+(01f1,1005) DS [360]                                    #   4, 1 Unknown Tag & Data
+(01f1,1007) DS [2.53]                                   #   4, 1 Unknown Tag & Data
+(01f1,1008) DS [57]                                     #   2, 1 Unknown Tag & Data
+(01f1,100a) US 0                                        #   2, 1 Unknown Tag & Data
+(01f1,100c) DS [-0.0960000008\0]                        #  16, 2 Unknown Tag & Data
+(01f1,100d) DS [0]                                      #   2, 1 Unknown Tag & Data
+(01f1,1026) DS [0.950]                                  #   6, 1 Unknown Tag & Data
+(01f1,1027) DS [0.75]                                   #   4, 1 Unknown Tag & Data
+(01f1,1032) CS [VIEW_FROM_FEET]                         #  14, 1 Unknown Tag & Data
+(01f1,1036) CS [MANUAL]                                 #   6, 1 Unknown Tag & Data
+(01f1,1037) DS [14]                                     #   2, 1 Unknown Tag & Data
+(01f1,1038) LO [Injection]                              #  10, 1 Unknown Tag & Data
+(01f1,1040) CS [D]                                      #   2, 1 Unknown Tag & Data
+(01f1,1042) SH [No]                                     #   2, 1 Unknown Tag & Data
+(01f1,1043) LO [Iodine]                                 #   6, 1 Unknown Tag & Data
+(01f1,1044) OW aaaa\aaaa\0000\000b\0000\0006\0000\0001\0000\002d\0008\2c24\0000... # 412, 1 Unknown Tag & Data
+(01f7,0010) LO [ELSCINT1]                               #   8, 1 PrivateCreator
+(01f7,1010) OB (no value available)                     #   0, 1 Unknown Tag & Data
+(01f7,1011) OW 1d74\7d05\0000\017c\0000\0078\0000\0032\0000\0000\0000\0001\0000... # 260, 1 Unknown Tag & Data
+(01f7,1013) OW 2f75\7372\2f64\6961\6d6f\6e64\2e72\6f6f\742f\6366\672f\766f\6963... # 136, 1 Unknown Tag & Data
+(01f7,1014) OW c449\e000\0000\0000\3d9e\e584\3ec5\986a\440e\8000\4482\0000\43fa... #  96, 1 Unknown Tag & Data
+(01f7,1015) OW 0000\02a0\0000\0004\0000\0488\0000\0050\0000\0590\0000\0002\0000... #  68, 1 Unknown Tag & Data
+(01f7,1016) OW 3db8\4632\0000\0006\0000\0006\0000\0006\0000\0006\40d3\3333\40d3... #  40, 1 Unknown Tag & Data
+(01f7,1017) OW 0000\0000\0000\0000                      #   8, 1 Unknown Tag & Data
+(01f7,1018) OW 0000\0000\0000\0000\0000\0000\0000\0028\0000\0014\0000\0014\0000... # 228, 1 Unknown Tag & Data
+(01f7,1019) OW 0000\0000\0000\0001\0000\0001\0000\0003\746d\7052\6177\342e\7261... # 668, 1 Unknown Tag & Data
+(01f7,101a) OW 4131\c28f\0000\053c\0000\0003\0000\0488\0000\0000\0000\0000 #  24, 1 Unknown Tag & Data
+(01f7,101b) OW 0000\02a0\5354\4142\2f61\6972\535f\7374\616e\6461\7264\5f32\7831... # 692, 1 Unknown Tag & Data
+(01f7,101c) OW 0000\0001\0000\0096\0000\0005\0000\0003\4040\0000\4000\0000\0000... # 116, 1 Unknown Tag & Data
+(01f7,101e) OW 0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000... # 364, 1 Unknown Tag & Data
+(01f7,101f) OW 0000\0488\01f7\101f\0000\0000\4000\0000\0000\0001\1173\2d60\5354... # 128, 1 Unknown Tag & Data
+(01f7,1022) UI [1.2.840.113704.1.1762661675.10130.1035486722.511111111111111] #  60, 1 Unknown Tag & Data
+(01f7,1023) OW 0000\0023                                #   4, 1 Unknown Tag & Data
+(01f7,1025) OW 0000\0001\0000\0000\0000\0000            #  12, 1 Unknown Tag & Data
+(01f7,1026) OW 0000\f22d\0000\0001\0000\0006\0006\981a\0000\0000\0641\7070\726f... # 5324, 1 Unknown Tag & Data
+(01f7,1027) OW c42c\4000\0000\05f1\0000\0000\0000\0001\0000\0000\0000\0001\0000... #  32, 1 Unknown Tag & Data
+(01f7,1028) OW 0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000... #  36, 1 Unknown Tag & Data
+(01f7,1029) OW 3f80\0000\4100\0000\45a0\5000\0000\000a\0000\0004\471c\4000\4559... # 384, 1 Unknown Tag & Data
+(01f7,102b) OW 0000\0008\3df5\c28f\4080\0000\0000\0002\0000\0000\0000\0001\0000... #  36, 1 Unknown Tag & Data
+(01f7,102c) OW 41b0\0000\0000\0000\0000\0000\0000\0000\41b0\0000\0000\0000\0000... # 100, 1 Unknown Tag & Data
+(01f7,102d) OW 0000\0000\0000\0000                      #   8, 1 Unknown Tag & Data
+(01f7,1030) OW 0000\0005\0000\36b0\0000\0000\0000\0000  #  16, 1 Unknown Tag & Data
+(07a1,0010) LO [ELSCINT1]                               #   8, 1 PrivateCreator
+(07a1,1010) LO [3.5]                                    #   4, 1 Unknown Tag & Data
+(07a1,1013) UL 539816                                   #   4, 1 Unknown Tag & Data
+(7fdf,0010) LO [ELSCINT1]                               #   8, 1 PrivateCreator
+(7fdf,10f0) OB (no value available)                     #   0, 1 Unknown Tag & Data
+(7fdf,10ff) SH (no value available)                     #   0, 0 Unknown Tag & Data
+(7fe0,0010) OW 0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000... # 524288, 1 PixelData

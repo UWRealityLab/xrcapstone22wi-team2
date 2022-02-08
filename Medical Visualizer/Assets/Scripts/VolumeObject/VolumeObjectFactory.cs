@@ -59,6 +59,13 @@ namespace MedicalVisualizer
             CrossSectionPlane csplane = quad.gameObject.GetComponent<CrossSectionPlane>();
             csplane.targetObject = volobj;
             quad.transform.position = volobj.transform.position;
+            csplane.sphere1 = GameObject.Instantiate((GameObject) Resources.Load("CrossSectionSphere"));
+            csplane.sphere1.transform.position = new Vector3(0.5f, 0f, 0.5f);
+            csplane.sphere2 = GameObject.Instantiate((GameObject) Resources.Load("CrossSectionSphere"));
+            csplane.sphere2.transform.position = new Vector3(0f, 1f, 0.5f);
+            csplane.sphere3 = GameObject.Instantiate((GameObject) Resources.Load("CrossSectionSphere"));
+            csplane.sphere3.transform.position = new Vector3(-0.5f, 0f, 0.5f);
+
 
 #if UNITY_EDITOR
             UnityEditor.Selection.objects = new UnityEngine.Object[] { quad };

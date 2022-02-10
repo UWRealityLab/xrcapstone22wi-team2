@@ -43,5 +43,10 @@ namespace MedicalVisualizer
             transform.rotation = Quaternion.LookRotation(-direction);
             transform.position = center;
         }
+        
+        public void DestroyGameObject()
+        {
+            Destroy(gameObject);
+        }
     }
 }

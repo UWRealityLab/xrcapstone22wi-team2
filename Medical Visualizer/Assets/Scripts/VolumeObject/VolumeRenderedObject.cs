@@ -153,5 +153,9 @@ namespace MedicalVisualizer
         {
             UpdateMaterialProperties();
         }
+        public void DestroyGameObject()
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -8,17 +9,14 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField]    
     string gameVersion = "1";
 
-    // Max number of players per room
-    [SerializeField]
-    private byte maxPlayerPerRoom = 4;
 
-    // MonoBehaviour method called on GameObject by Unity during early initialization phase.
-    private void Awake()
-    {
-        // this makes sure we can use PhotonNetwork.LoadLevel() on the master
-        // client and all clients in the same room sync their level automatically
-        PhotonNetwork.AutomaticallySyncScene = true;
-    }
+    //// MonoBehaviour method called on GameObject by Unity during early initialization phase.
+    //private void Awake()
+    //{
+    //    // this makes sure we can use PhotonNetwork.LoadLevel() on the master
+    //    // client and all clients in the same room sync their level automatically
+    //    PhotonNetwork.AutomaticallySyncScene = true;
+    //}
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +26,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void ConnectToPhoton()
     {
-        // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
         if (!PhotonNetwork.IsConnected)
         {
             Debug.Log("PUN Basic Launcher: Attempting to connect to the server");
@@ -38,11 +35,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
     }
 
-    public void JoinRoom()
+    public void switchScene()
     {
-        Debug.Log("PUN Basic Launcher: Attempting to Join a random room");
-        // attempt joining a Random Room. If it fails, we'll get notified in OnJoinRandomFailed() and we'll create one.
-        PhotonNetwork.JoinRandomRoom();
+        SceneManager.LoadScene("Room 1");
     }
 
     // Method called if PUN is able to connect
@@ -50,6 +45,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         //base.OnConnectedToMaster();
         Debug.Log("PUN Basic Launcher: OnConnectedToMaster() was called by PUN");
+        //JoinRoom();
     }
 
     public override void OnDisconnected(DisconnectCause cause)
@@ -58,20 +54,21 @@ public class Launcher : MonoBehaviourPunCallbacks
         Debug.LogWarningFormat("PUN Basic Launcher: OnDisconnected() was called by PUN with reason {0}", cause);
     }
 
-    public override void OnJoinRandomFailed(short returnCode, string message)
-    {
-        //base.OnJoinRandomFailed(returnCode, message);
-        Debug.Log("PUN Basic Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
+    //public override void OnJoinRandomFailed(short returnCode, string message)
+    //{
+    //    //base.OnJoinRandomFailed(returnCode, message);
+    //    Debug.Log("PUN Basic Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
 
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = maxPlayerPerRoom;
-        // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
-        PhotonNetwork.CreateRoom(null, roomOptions);
-    }
+    //    RoomOptions roomOptions = new RoomOptions();
+    //    roomOptions.MaxPlayers = maxPlayerPerRoom;
+    //    // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
+    //    PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);
+    //}
 
     public override void OnJoinedRoom()
     {
         //base.OnJoinedRoom();
-        Debug.Log("PUN Basic Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+        Debug.Log("PUN Basic Launcher: OnJoinedRoom() called by PUN. Now this client is in " + PhotonNetwork.CurrentRoom.Name);
+        //SceneManager.LoadScene(PhotonNetwork.CurrentRoom.Name);
     }
 }

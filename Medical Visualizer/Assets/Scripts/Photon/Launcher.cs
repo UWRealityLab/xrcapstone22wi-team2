@@ -35,9 +35,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
     }
 
-    public void switchScene()
+    public void switchScene(string sceneName)
     {
-        SceneManager.LoadScene("Room 1");
+        SceneManager.LoadScene(sceneName);
     }
 
     // Method called if PUN is able to connect

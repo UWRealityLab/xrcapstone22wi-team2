@@ -12,8 +12,7 @@
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" /> -->
-
-  <!-- 
+		<!--
 	//////////////////////////////////////////////////////
 
 	FREE HTML5 TEMPLATE 
@@ -60,7 +59,10 @@
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
-	<![endif]-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+		<![endif]-->
 
 	</head>
 	<body>
@@ -87,8 +89,7 @@
 		</nav>
 	</header>
 	<!-- END .header -->
-	
-	
+
 	<div id="fh5co-main">
 		<div class="fh5co-intro text-center">
 			<div class="container">
@@ -104,83 +105,125 @@
 		<div id="fh5co-content">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-10 col-md-offset-1">
-						<div class="row">
-							<!-- <div class="col-md-3 col-md-push-9 animate-box">
-								<h3>Paragraph</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								<ul class="fh5co-list-check">
-									<li>Far far away</li>
-									<li>The word mountains</li>
-									<li>Far from the countries</li>
-									<li>Bookmarksgrove right</li>
-								</ul>
-							</div> -->
-							<div class="col-md-pull-3">
-								<h1> Snippet Week 5</h1>
-								<iframe src="https://docs.google.com/document/d/e/2PACX-1vRfTOjDrMGd-QFMnukYHSq-e9h8J4usoBKIB5S0I8bDD27zKbmM03qEduRkKURGLK3B9ooV1TSCHQTv/pub?embedded=true" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:80%;width:100%;border:none;overflow:hidden;"></iframe>
-								<h1> Snippet Week 4</h1>
-								<div class ="animate-box">
-									<li><h4>What we worked on: </h4></li>
-									<p>Working towards our Minimum Viable Product, will probably do a push throughout the weekend and Monday to finish up the PRD and add some more features.</p>
-									<p>Dixon: Working on the Photon multi-user. Starting to focus on creating lobby so different doctors that uses the same app will have each of their own room with patients. Think about how patient will join and authorized to stop accidentally showing patient crucial information to other unauthorized person. </p>
-									<p>Jeffery: Continue working on the rendering and loading general DICOM files. Worked with Winston for the slicing tool.</p>
-									<p>Winston: Decide on how the DICOM files is going to be stored and loaded. Worked with Jeffery for the slicing tool.</p>
-									<li><h4>New features/functionality implemented:</h4></li>
-									<p>
-										<ul> - App is more robust in rendering the file and the process of rendering is better.</ul>
-										<ul> - Will fully implement slicing tools throughout the weekend until before the presentation.</ul>										
-										<ul> - Integrated photon into the app, will need to support synchronized view when the rendering is being modified.</ul>										
-									</p>
-									<li><h4>Specific files the team would like to have reviewed:</h4></li>
-									<p>None</p>
-									<li><h4>Blocking issues or other help needed:</h4></li>
-									<p>None</p>
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+										Snippet Week 2</a>
+								</h4>
+							</div>
+							<div id="collapse2" class="panel-collapse collapse">
+								<div class="panel-body">
+									<iframe src="https://docs.google.com/document/d/e/2PACX-1vStm4hy6MLDesGNHw8n7MgZ1HitHwxi8APtdiBmDtnUb_03oP5BYR9xVYtTKgk1MrBnXkbyElhtLFwX/pub?embedded=true"
+											style="height:500px;width:100%;border:none;overflow:hidden;">
+									</iframe>
 								</div>
-								<h1> Snippet Week 3</h1>
-								<div class ="animate-box">
-									<li><h4>What we worked on: </h4></li>
-									<p>Finished the PRD documents, started preparing to code for the rest of the quarter.</p>
-									<p>Dixon: Started to create an app server for PUN. Researching around on how to use the multiplayer. Worked in a Sandbox with Photon Pun to get started with the networking functionality of our program.</p>
-									<p>Jeffery:Found and modified code to allow for importing dicom files into a unity application.</p>
-									<p>Winston:Worked on finding/developing shaders in Unity to render medical volumes.</p>
-									<li><h4>New features/functionality implemented:</h4></li>
-									<p>
-										<ul> - Our app is able to render medical scans, and we can interact with the volumes in VR.</ul>
-										<ul> - We can load new dicom files into the unity program but are unable to load new scans while in VR.</ul>										
-									</p>
-									<li><h4>Specific files the team would like to have reviewed:</h4></li>
-									<p>None</p>
-									<li><h4>Blocking issues or other help needed:</h4></li>
-									<p>None</p>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+										Snippet Week 3</a>
+								</h4>
+							</div>
+							<div id="collapse3" class="panel-collapse collapse">
+								<div class="panel-body">
+									<iframe src="https://docs.google.com/document/d/e/2PACX-1vSgz8d2kS2zzfCHDuOoRFwD1r8nJfiJ43PsL21nGhkr3Wv7M8FtcUG75SA11NFtbFI-TAe5tOPhjiCn/pub?embedded=true"
+											style="height:500px;width:100%;border:none;overflow:hidden;">
+									</iframe>
 								</div>
-								<h1> Snippet Week 2</h1>
-								<div class ="animate-box">
-									<li><h4>What we worked on: </h4></li>
-									<p>We all worked together to get out ideas solidly laid out. So nobody really worked on anything solo.</p>
-									<li><h4>New features/functionality implemented:</h4></li>
-									<p>None</p>
-									<li><h4>Specific files the team would like to have reviewed:</h4></li>
-									<p>None</p>
-									<li><h4>Blocking issues or other help needed:</h4></li>
-									<p>None</p>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+										Snippet Week 4</a>
+								</h4>
+							</div>
+							<div id="collapse4" class="panel-collapse collapse">
+								<div class="panel-body">
+									<iframe src="https://docs.google.com/document/d/e/2PACX-1vSLb5HBzINM-jKhICRInKE4RfglJYzVGmD4-GyzAiXm-6oX1n4UO1Cn65ov-8u3C0OuyMPjDFJzFQin/pub?embedded=true"
+											style="height:500px;width:100%;border:none;overflow:hidden;">
+									</iframe>
 								</div>
-								<!-- <h1> Snippet Week 1</h1>
-								<div class ="animate-box">
-									<li><h4>What we worked on: </h4></li>
-									<p>We all worked together to get out ideas solidly laid out. So nobody really worked on anything solo.</p>
-									<li><h4>New features/functionality implemented:</h4></li>
-									<p>None</p>
-									<li><h4>Specific files the team would like to have reviewed:</h4></li>
-									<p>None</p>
-									<li><h4>Blocking issues or other help needed:</h4></li>
-									<p>None</p>
-								</div> -->
-								<!-- <p class="animate-box">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-								<p class="animate-box">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-								<p class="animate-box">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-								<p class="animate-box">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-								<p class="animate-box">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+										Snippet Week 5</a>
+								</h4>
+							</div>
+							<div id="collapse5" class="panel-collapse collapse">
+								<div class="panel-body">
+									<iframe src="https://docs.google.com/document/d/e/2PACX-1vRfTOjDrMGd-QFMnukYHSq-e9h8J4usoBKIB5S0I8bDD27zKbmM03qEduRkKURGLK3B9ooV1TSCHQTv/pub?embedded=true"
+											style="height:500px;width:100%;border:none;overflow:hidden;">
+									</iframe>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+										Snippet Week 6</a>
+								</h4>
+							</div>
+							<div id="collapse6" class="panel-collapse collapse">
+								<div class="panel-body">
+									<iframe src="https://docs.google.com/document/d/e/2PACX-1vRwX9rgAlByXM3CjxWQDXEG9LF54TjlOJ01ER4sQhun83a1lmuFS6TCq69zCMUAC0NqzZksNhry2pXv/pub?embedded=true"
+											style="height:500px;width:100%;border:none;overflow:hidden;">
+									</iframe>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+										Snippet Week 7</a>
+								</h4>
+							</div>
+							<div id="collapse7" class="panel-collapse collapse">
+								<div class="panel-body">
+									<iframe src="https://docs.google.com/document/d/e/2PACX-1vS5NCHXxYfxuMGYxXhjcAWGNpaBitmoZYLUso5oQsvc3wgF9AEPQ6vGLBSn9kLGGC4O_v9ljYbgX9kk/pub?embedded=true"
+											style="height:500px;width:100%;border:none;overflow:hidden;">
+									</iframe>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+										Snippet Week 8</a>
+								</h4>
+							</div>
+							<div id="collapse8" class="panel-collapse collapse">
+								<div class="panel-body">
+									<iframe src="https://docs.google.com/document/d/e/2PACX-1vSVaGKkYYXOhJwOWQlPoCxGVaaU8FwbEVQ-QKM54IkLqPSGVXTo8ODHH6tAmGS6CaGjGQgw_Bk2C6YK/pub?embedded=true"
+											style="height:500px;width:100%;border:none;overflow:hidden;">
+									</iframe>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+										Snippet Week 9</a>
+								</h4>
+							</div>
+							<div id="collapse9" class="panel-collapse collapse">
+								<div class="panel-body">
+									<iframe src="https://docs.google.com/document/d/e/2PACX-1vT63_AX4mRB8K4mjy489DGYMJ0q0i7yjG0CeDlLHfAI20_csNO2GsZ2roBlsy8MWgbaRsbA5lvzBX10/pub?embedded=true"
+											style="height:500px;width:100%;border:none;overflow:hidden;">
+									</iframe>
+								</div>
 							</div>
 						</div>
 					</div>

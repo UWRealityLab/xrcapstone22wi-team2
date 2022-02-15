@@ -11,10 +11,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
 
     private GameObject spawnedPlayerPrefab;
+    public string roomName;
     private void Start()
     {
         Debug.Log("RoomManager started");
-        JoinRoom();
+        JoinRoom(roomName);
     }
 
     // PUN Callbacks that is Called when the local player left the room. We need to load the launcher scene.
@@ -63,7 +64,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             LoadRoom();
         }
     }
-    public void JoinRoom()
+    public void JoinRoom(string roomName)
     {
         Debug.Log("PUN Basic Launcher: Attempting to Join a random room");
         // attempt joining a Random Room. If it fails, we'll get notified in OnJoinRandomFailed() and we'll create one.
@@ -72,7 +73,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         roomOptions.MaxPlayers = 4;
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
-        bool success = PhotonNetwork.JoinOrCreateRoom("Room 1", roomOptions, TypedLobby.Default);
+        bool success = PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
         if (!success)
         {
             SceneManager.LoadScene(0);

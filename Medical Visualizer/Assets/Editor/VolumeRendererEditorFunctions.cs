@@ -16,8 +16,12 @@ namespace MedicalVisualizer
         [MenuItem("Volume Rendering/Load dataset/Load DICOM")]
         static void ShowDICOMImporter()
         {
-            string dir = EditorUtility.OpenFolderPanel("Select a folder to load", "", "");
-            openDicomFromDir(dir);
+            VolumeRenderedObject[] objects = GameObject.FindObjectsOfType<VolumeRenderedObject>();
+            if (objects.Length != 1)
+            {
+                string dir = EditorUtility.OpenFolderPanel("Select a folder to load", "", "");
+                openDicomFromDir(dir);
+            }
         }
 
         [MenuItem("Volume Rendering/Load dataset/Load DICOM from attu")]
@@ -89,7 +93,8 @@ namespace MedicalVisualizer
                             }
 
                             VolumeRenderedObject obj = VolumeObjectFactory.CreateObject(dataset);
-                            obj.transform.position = new Vector3(numVolumesCreated, 0, 0);
+                            obj.transform.position = new Vector3(numVolumesCreated, 1, 1);
+                            VolumeObjectFactory.SpawnCrossSectionPlane(obj);
                             numVolumesCreated++;
                         }
                     }

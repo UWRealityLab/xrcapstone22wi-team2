@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5195632997576778970}
   - component: {fileID: 5741193803138207096}
   - component: {fileID: 1501869000503369037}
+  - component: {fileID: -274634397901654828}
   m_Layer: 0
   m_Name: CrossSectionSphere
   m_TagString: Untagged
@@ -228,3 +229,15 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &-274634397901654828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5195632997576778971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266468967f8f86447971b31ee7d5d6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -63,6 +63,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Visualize.unity
     guid: f7c13e11db0a9ab429ea18affb5df606
+  - enabled: 0
+    path: Assets/Scenes/UI Test.unity
+    guid: a02f1b2907803cc45a18fd3392ebab51
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a798ca0faae68234687ad1b5bf74dd0b, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c82c8478b87bc55469df80d8b77972cc, type: 2}

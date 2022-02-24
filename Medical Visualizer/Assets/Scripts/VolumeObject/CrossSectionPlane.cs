@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace MedicalVisualizer
@@ -42,6 +43,11 @@ namespace MedicalVisualizer
             Vector3 direction = Vector3.Cross(ab, bc);
             transform.rotation = Quaternion.LookRotation(-direction);
             transform.position = center;
+        }
+
+        public void DestroyGameObject()
+        {
+            Destroy(gameObject);
         }
     }
 }

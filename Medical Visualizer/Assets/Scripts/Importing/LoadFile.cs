@@ -8,6 +8,9 @@ using System.Net;
 using System.IO.Compression;
 using MedicalVisualizer;
 using UnityEngine.XR;
+using Photon;
+using Photon.Pun;
+using UnityEngine.UI;
 
 public class LoadFile : MonoBehaviour
 {
@@ -33,7 +36,10 @@ public class LoadFile : MonoBehaviour
     private string extractPath2 = "/dataset1_1";
     private string downloadPath2 = "https://homes.cs.washington.edu/~winj/481V/dataset1_zip/dataset1_1.zip";
 
-    private int file;
+    private VolumeObjectFactory.CrossSectionNetworkHelper cshelper;
+    private CrossSectionPlane csplane;
+
+    private int file = 1;
     void GetDevice()
     {
         InputDevices.GetDevicesAtXRNode(xrNodeLeft, leftDevices);
@@ -57,55 +63,82 @@ public class LoadFile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loadFromAttu(filePath1, extractPath1, downloadPath1);
-        file = 0;
+        //loadFromAttu(filePath1, extractPath1, downloadPath1);
+        //file = 0;
+        disableLoadingInfo();
+    }
+
+    void enableLoadingInfo()
+    {
+        GameObject obj = GameObject.Find("LoadingInfo");
+        foreach (Image img in obj.GetComponentsInChildren<Image>())
+        {
+            img.enabled = true;
+        }
+        foreach (Text t in obj.GetComponentsInChildren<Text>())
+        {
+            t.enabled = true;
+        }
+    }
+
+    void disableLoadingInfo()
+    {
+        GameObject obj = GameObject.Find("LoadingInfo");
+        foreach (Image img in obj.GetComponentsInChildren<Image>())
+        {
+            img.enabled = false;
+        }
+        foreach (Text t in obj.GetComponentsInChildren<Text>())
+        {
+            t.enabled = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!leftDevice.isValid || !rightDevice.isValid)
-        {
-            GetDevice();
-        }
-        bool leftPrimaryButton = false;
-        if (leftDevice.TryGetFeatureValue(CommonUsages.primaryButton, out leftPrimaryButton) && leftPrimaryButton && !leftButtonPressed)
-        {
-            leftButtonPressed = true;
-            Debug.Log("left pressed");
-        }
-        else if (!leftPrimaryButton && leftButtonPressed)
-        {
-            leftButtonPressed = false;
-            Debug.Log("left released");
-            if (file != 0)
-            {
-                deleteObjects();
-                loadFromAttu(filePath1, extractPath1, downloadPath1);
-                file = 0;
-            }
-        }
+        //if (!leftDevice.isValid || !rightDevice.isValid)
+        //{
+        //    GetDevice();
+        //}
+        //bool leftPrimaryButton = false;
+        //if (leftDevice.TryGetFeatureValue(CommonUsages.primaryButton, out leftPrimaryButton) && leftPrimaryButton && !leftButtonPressed)
+        //{
+        //    leftButtonPressed = true;
+        //    Debug.Log("left pressed");
+        //}
+        //else if (!leftPrimaryButton && leftButtonPressed)
+        //{
+        //    leftButtonPressed = false;
+        //    Debug.Log("left released");
+        //    if (file != 0)
+        //    {
+        //        file = 0;
+        //        deleteObjects();
+        //        loadFromAttu(filePath1, extractPath1, downloadPath1);
+        //    }
+        //}
 
-        bool rightPrimaryButton = false;
-        if (rightDevice.TryGetFeatureValue(CommonUsages.primaryButton, out rightPrimaryButton) && rightPrimaryButton && !rightButtonPressed)
-        {
-            rightButtonPressed = true;
-            Debug.Log("right pressed");
-        }
-        else if (!rightPrimaryButton && rightButtonPressed)
-        {
-            rightButtonPressed = false;
-            Debug.Log("right released");
-            if (file != 1)
-            {
-                deleteObjects();
-                loadFromAttu(filePath2, extractPath2, downloadPath2);
-                file = 1;
-            }
-        }
+        //bool rightPrimaryButton = false;
+        //if (rightDevice.TryGetFeatureValue(CommonUsages.primaryButton, out rightPrimaryButton) && rightPrimaryButton && !rightButtonPressed)
+        //{
+        //    rightButtonPressed = true;
+        //    Debug.Log("right pressed");
+        //}
+        //else if (!rightPrimaryButton && rightButtonPressed)
+        //{
+        //    rightButtonPressed = false;
+        //    Debug.Log("right released");
+        //    if (file != 1)
+        //    {
+        //        file = 1;
+        //        deleteObjects();
+        //        loadFromAttu(filePath2, extractPath2, downloadPath2);
+        //    }
+        //}
     }
 
-    static void deleteObjects()
+    public void deleteObjects()
     {
         MedicalVisualizer.VolumeRenderedObject[] vro = GameObject.FindObjectsOfType<VolumeRenderedObject>();
         foreach (VolumeRenderedObject o in vro)
@@ -120,11 +153,69 @@ public class LoadFile : MonoBehaviour
         CrossSectionSphere[] css = GameObject.FindObjectsOfType<CrossSectionSphere>();
         foreach (CrossSectionSphere o in css)
         {
-            o.DestroyGameObject();
+            if (o.GetComponent<PhotonView>().IsMine)
+            {
+                PhotonNetwork.Destroy(o.GetComponent<PhotonView>());
+            }
         }
     }
 
-    static void loadFromAttu(string fp, string ep, string dp)
+    public void loadSampleDicom_1()
+    {
+        PhotonView photonView = PhotonView.Get(this);
+        photonView.RPC("rpcLoadSampleDicom", RpcTarget.Others, filePath1, extractPath1, downloadPath1);
+        deleteObjects();
+        enableLoadingInfo();
+        loadFromAttu(filePath1, extractPath1, downloadPath1, true);
+        disableLoadingInfo();
+    }
+
+    public void loadSampleDicom_2()
+    {
+        PhotonView photonView = PhotonView.Get(this);
+        photonView.RPC("rpcLoadSampleDicom", RpcTarget.Others, filePath2, extractPath2, downloadPath2);
+        deleteObjects();
+        enableLoadingInfo();
+        loadFromAttu(filePath2, extractPath2, downloadPath2, true);
+        disableLoadingInfo();
+    }
+
+
+    [PunRPC]
+    void rpcLoadSampleDicom(string filePath, string extractPath, string downloadPath, PhotonMessageInfo info)
+    {
+        Debug.Log("RPC is called to load DICOM");
+        deleteObjects();
+        enableLoadingInfo();
+        loadFromAttu(filePath, extractPath, downloadPath, false);
+        disableLoadingInfo();
+        Debug.LogFormat("Got a message from {0} to load dicom", info.Sender);
+        PhotonView.Get(this).RPC("finishedLoading", info.Sender);
+    }
+
+    [PunRPC]
+    void finishedLoading(PhotonMessageInfo info)
+    {
+        Debug.LogFormat("Got a message from {0} they finished loading", info.Sender);
+        if (cshelper.id_1 == 0 && cshelper.id_2 == 0 && cshelper.id_3 == 0)
+            return;
+
+        PhotonView.Get(this).RPC("addCrossSectionSphere", RpcTarget.Others, cshelper.id_1, cshelper.id_2, cshelper.id_3);
+    }
+
+    [PunRPC]
+    void addCrossSectionSphere(int id1, int id2, int id3, PhotonMessageInfo info)
+    {
+        Debug.LogFormat("Got a message from {0} to add cross section sphere", info.Sender);
+        if (csplane == null)
+            return;
+
+        csplane.sphere1 = PhotonView.Find(id1).gameObject;
+        csplane.sphere2 = PhotonView.Find(id2).gameObject;
+        csplane.sphere3 = PhotonView.Find(id3).gameObject;
+    }
+
+    void loadFromAttu(string fp, string ep, string dp, bool isOwner)
     {
         // e.g. C:/Users/WinJ/Documents/Git/481_V/Medical Visualizer/Assets
         string m_Path = Application.dataPath;
@@ -148,9 +239,9 @@ public class LoadFile : MonoBehaviour
         }
         catch (IOException) { }
         // call api
-        openDicomFromDir(extractPath);
+        openDicomFromDir(extractPath, isOwner);
     }
-    static void openDicomFromDir(string dir)
+    void openDicomFromDir(string dir, bool isOwner)
     {
         if (Directory.Exists(dir))
         {
@@ -190,18 +281,18 @@ public class LoadFile : MonoBehaviour
                         //        dataset.DownScaleData();
                         //    }
                         //}
-
                         VolumeRenderedObject obj = VolumeObjectFactory.CreateObject(dataset);
                         obj.transform.position = new Vector3(numVolumesCreated, 1, -18);
-                        VolumeObjectFactory.SpawnCrossSectionPlane(obj);
+                        VolumeObjectFactory.CrossSectionNetworkHelper cshelpertmp = VolumeObjectFactory.SpawnCrossSectionPlane(obj, isOwner);
+                        csplane = cshelpertmp.csplane;
+                        cshelper = cshelpertmp;
                         numVolumesCreated++;
+                        //PhotonView.Get(this).RPC()
                     }
                 }
             }
             else
                 Debug.LogError("Could not find any DICOM files to import.");
-
-
         }
         else
         {

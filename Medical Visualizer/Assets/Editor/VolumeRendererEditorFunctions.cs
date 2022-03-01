@@ -95,7 +95,7 @@ namespace MedicalVisualizer
 
                             VolumeRenderedObject obj = VolumeObjectFactory.CreateObject(dataset);
                             obj.transform.position = new Vector3(numVolumesCreated, 1, -18);
-                            VolumeObjectFactory.SpawnCrossSectionPlane(obj);
+                            VolumeObjectFactory.SpawnCrossSectionPlane(obj, false);
                             numVolumesCreated++;
                         }
                     }

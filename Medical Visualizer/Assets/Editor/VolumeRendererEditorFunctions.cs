@@ -46,7 +46,8 @@ namespace MedicalVisualizer
                 // unzip
                 ZipFile.ExtractToDirectory(filePath, extractPath);
                 Debug.Log("Successfully extracted to: " + extractPath);
-            } catch (IOException) {}
+            }
+            catch (IOException) { }
             // call api
             openDicomFromDir(extractPath);
         }
@@ -63,13 +64,13 @@ namespace MedicalVisualizer
 
                 if (!fileCandidates.Any())
                 {
-#if UNITY_EDITOR
-                    if (UnityEditor.EditorUtility.DisplayDialog("Could not find any DICOM files",
-                        $"Failed to find any files with DICOM file extension.{Environment.NewLine}Do you want to include files without DICOM file extension?", "Yes", "No"))
-                    {
-                        fileCandidates = Directory.EnumerateFiles(dir, "*.*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
-                    }
-#endif
+                    //#if UNITY_EDITOR
+                    //                    if (UnityEditor.EditorUtility.DisplayDialog("Could not find any DICOM files",
+                    //                        $"Failed to find any files with DICOM file extension.{Environment.NewLine}Do you want to include files without DICOM file extension?", "Yes", "No"))
+                    //                    {
+                    //                        fileCandidates = Directory.EnumerateFiles(dir, "*.*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+                    //                    }
+                    //#endif
                 }
 
                 if (fileCandidates.Any())
@@ -83,17 +84,17 @@ namespace MedicalVisualizer
                         VolumeDataset dataset = importer.ImportDICOMSeries(series);
                         if (dataset != null)
                         {
-                            if (EditorPrefs.GetBool("DownscaleDatasetPrompt"))
-                            {
-                                if (EditorUtility.DisplayDialog("Optional DownScaling",
-                                    $"Do you want to downscale the dataset? The dataset's dimension is: {dataset.dimX} x {dataset.dimY} x {dataset.dimZ}", "Yes", "No"))
-                                {
-                                    dataset.DownScaleData();
-                                }
-                            }
+                            //if (EditorPrefs.GetBool("DownscaleDatasetPrompt"))
+                            //{
+                            //    if (EditorUtility.DisplayDialog("Optional DownScaling",
+                            //        $"Do you want to downscale the dataset? The dataset's dimension is: {dataset.dimX} x {dataset.dimY} x {dataset.dimZ}", "Yes", "No"))
+                            //    {
+                            //        dataset.DownScaleData();
+                            //    }
+                            //}
 
                             VolumeRenderedObject obj = VolumeObjectFactory.CreateObject(dataset);
-                            obj.transform.position = new Vector3(numVolumesCreated, 1, 1);
+                            obj.transform.position = new Vector3(numVolumesCreated, 1, -18);
                             VolumeObjectFactory.SpawnCrossSectionPlane(obj);
                             numVolumesCreated++;
                         }

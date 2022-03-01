@@ -192,7 +192,7 @@ public class LoadFile : MonoBehaviour
                         //}
 
                         VolumeRenderedObject obj = VolumeObjectFactory.CreateObject(dataset);
-                        obj.transform.position = new Vector3(numVolumesCreated, 1, 1);
+                        obj.transform.position = new Vector3(numVolumesCreated, 1, -18);
                         VolumeObjectFactory.SpawnCrossSectionPlane(obj);
                         numVolumesCreated++;
                     }

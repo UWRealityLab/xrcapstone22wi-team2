@@ -129,7 +129,7 @@ namespace MedicalVisualizer
                         meshRenderer.sharedMaterial.DisableKeyword("MODE_SURF");
                         break;
                     }
-                case RenderMode.MaximumIntensityProjectipon:
+                case RenderMode.MaximumIntensityProjection:
                     {
                         meshRenderer.sharedMaterial.DisableKeyword("MODE_DVR");
                         meshRenderer.sharedMaterial.EnableKeyword("MODE_MIP");

@@ -25,7 +25,6 @@ Shader "Custom/DirectVolumeRenderingShader"
 				#pragma multi_compile __ TF2D_ON
 				#pragma multi_compile __ CUTOUT_PLANE CUTOUT_BOX_INCL CUTOUT_BOX_EXCL
 				#pragma multi_compile __ LIGHTING_ON
-				#pragma multi_compile DEPTHWRITE_ON DEPTHWRITE_OFF
 				#pragma vertex vert
 				#pragma fragment frag
 

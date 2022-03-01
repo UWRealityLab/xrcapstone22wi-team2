@@ -3,7 +3,7 @@ namespace MedicalVisualizer
     public enum RenderMode
     {
         DirectVolumeRendering,
-        MaximumIntensityProjectipon,
+        MaximumIntensityProjection,
         IsosurfaceRendering
     }
 

@@ -1,320 +1,331 @@
-
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Medical Imaging VR &mdash; CSE 481V</title>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" /> -->
-		<!--
-	//////////////////////////////////////////////////////
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>Medical Imaging VR &mdash; CSE 481V</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+    <meta name="author" content="FREEHTML5.CO" /> -->
+    <!--
+//////////////////////////////////////////////////////
 
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FREEHTML5.CO
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
+FREE HTML5 TEMPLATE
+DESIGNED & DEVELOPED by FREEHTML5.CO
 
-	//////////////////////////////////////////////////////
-	 -->
+Website: 		http://freehtml5.co/
+Email: 			info@freehtml5.co
+Twitter: 		http://twitter.com/fh5co
+Facebook: 		https://www.facebook.com/fh5co
 
-  <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+//////////////////////////////////////////////////////
+ -->
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+    <!-- Facebook and Twitter integration -->
+    <meta content="" property="og:title"/>
+    <meta content="" property="og:image"/>
+    <meta content="" property="og:url"/>
+    <meta content="" property="og:site_name"/>
+    <meta content="" property="og:description"/>
+    <meta content="" name="twitter:title"/>
+    <meta content="" name="twitter:image"/>
+    <meta content="" name="twitter:url"/>
+    <meta content="" name="twitter:card"/>
 
-	<!-- Google Webfonts -->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,500' rel='stylesheet' type='text/css'>
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Simple Line Icons -->
-	<link rel="stylesheet" href="css/simple-line-icons.css">
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<!-- Theme Style -->
-	<link rel="stylesheet" href="css/style.css">
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href="favicon.ico" rel="shortcut icon">
 
-		<![endif]-->
+    <!-- Google Webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,500' rel='stylesheet' type='text/css'>
 
-	</head>
-	<body>
-		
-	<header id="fh5co-header" role="banner">
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-10 col-md-offset-1">
-						<div class="navbar-header"> 
-						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle visible-xs-block" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-						<a class="navbar-brand" href="index.html">CSE 481V</a>
-						</div>
-						<div id="fh5co-navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav navbar-right">
-								<li class="active"><a href="index.html"><span>Home <span class="border"></span></span></a></li>
-								<li><a href="snippets.html"><span>Snippet Weeks <span class="border"></span></span></a></li>
-								<!-- <li><a href="left-sidebar.html"><span>Left Sidebar <span class="border"></span></span></a></li> -->
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<!-- END .header -->
+    <!-- Animate.css -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Icomoon Icon Fonts-->
+    <link href="css/icomoon.css" rel="stylesheet">
+    <!-- Simple Line Icons -->
+    <link href="css/simple-line-icons.css" rel="stylesheet">
+    <!-- Magnific Popup -->
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <!-- Theme Style -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
 
-	<div id="fh5co-main">
-		<div class="fh5co-intro text-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1 class="intro-lead">Snippet Weeks</h1>
-						<!-- <p class="">CSE  <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a></p> -->
-					</div>
-				</div>
-			</div>
-		</div>
+    <![endif]-->
 
-		<div id="fh5co-content">
-			<div class="container">
-				<div class="row">
-					<div class="panel-group" id="accordion">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-										Snippet Week 2</a>
-								</h4>
-							</div>
-							<div id="collapse2" class="panel-collapse collapse">
-								<div class="panel-body">
-									<iframe src="https://docs.google.com/document/d/e/2PACX-1vStm4hy6MLDesGNHw8n7MgZ1HitHwxi8APtdiBmDtnUb_03oP5BYR9xVYtTKgk1MrBnXkbyElhtLFwX/pub?embedded=true"
-											style="height:500px;width:100%;border:none;overflow:hidden;">
-									</iframe>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-										Snippet Week 3</a>
-								</h4>
-							</div>
-							<div id="collapse3" class="panel-collapse collapse">
-								<div class="panel-body">
-									<iframe src="https://docs.google.com/document/d/e/2PACX-1vSgz8d2kS2zzfCHDuOoRFwD1r8nJfiJ43PsL21nGhkr3Wv7M8FtcUG75SA11NFtbFI-TAe5tOPhjiCn/pub?embedded=true"
-											style="height:500px;width:100%;border:none;overflow:hidden;">
-									</iframe>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-										Snippet Week 4</a>
-								</h4>
-							</div>
-							<div id="collapse4" class="panel-collapse collapse">
-								<div class="panel-body">
-									<iframe src="https://docs.google.com/document/d/e/2PACX-1vSLb5HBzINM-jKhICRInKE4RfglJYzVGmD4-GyzAiXm-6oX1n4UO1Cn65ov-8u3C0OuyMPjDFJzFQin/pub?embedded=true"
-											style="height:500px;width:100%;border:none;overflow:hidden;">
-									</iframe>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-										Snippet Week 5</a>
-								</h4>
-							</div>
-							<div id="collapse5" class="panel-collapse collapse">
-								<div class="panel-body">
-									<iframe src="https://docs.google.com/document/d/e/2PACX-1vRfTOjDrMGd-QFMnukYHSq-e9h8J4usoBKIB5S0I8bDD27zKbmM03qEduRkKURGLK3B9ooV1TSCHQTv/pub?embedded=true"
-											style="height:500px;width:100%;border:none;overflow:hidden;">
-									</iframe>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
-										Snippet Week 6</a>
-								</h4>
-							</div>
-							<div id="collapse6" class="panel-collapse collapse">
-								<div class="panel-body">
-									<iframe src="https://docs.google.com/document/d/e/2PACX-1vRwX9rgAlByXM3CjxWQDXEG9LF54TjlOJ01ER4sQhun83a1lmuFS6TCq69zCMUAC0NqzZksNhry2pXv/pub?embedded=true"
-											style="height:500px;width:100%;border:none;overflow:hidden;">
-									</iframe>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
-										Snippet Week 7</a>
-								</h4>
-							</div>
-							<div id="collapse7" class="panel-collapse collapse">
-								<div class="panel-body">
-									<iframe src="https://docs.google.com/document/d/e/2PACX-1vS5NCHXxYfxuMGYxXhjcAWGNpaBitmoZYLUso5oQsvc3wgF9AEPQ6vGLBSn9kLGGC4O_v9ljYbgX9kk/pub?embedded=true"
-											style="height:500px;width:100%;border:none;overflow:hidden;">
-									</iframe>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
-										Snippet Week 8</a>
-								</h4>
-							</div>
-							<div id="collapse8" class="panel-collapse collapse">
-								<div class="panel-body">
-									<iframe src="https://docs.google.com/document/d/e/2PACX-1vSVaGKkYYXOhJwOWQlPoCxGVaaU8FwbEVQ-QKM54IkLqPSGVXTo8ODHH6tAmGS6CaGjGQgw_Bk2C6YK/pub?embedded=true"
-											style="height:500px;width:100%;border:none;overflow:hidden;">
-									</iframe>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse9">
-										Snippet Week 9</a>
-								</h4>
-							</div>
-							<div id="collapse9" class="panel-collapse collapse">
-								<div class="panel-body">
-									<iframe src="https://docs.google.com/document/d/e/2PACX-1vT63_AX4mRB8K4mjy489DGYMJ0q0i7yjG0CeDlLHfAI20_csNO2GsZ2roBlsy8MWgbaRsbA5lvzBX10/pub?embedded=true"
-											style="height:500px;width:100%;border:none;overflow:hidden;">
-									</iframe>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+</head>
+<body>
 
-		<!-- <div id="fh5co-services">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-10 col-md-offset-1">
-						<div class="row">
-							<h2 class="section-lead text-center">Features</h2>
-							<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
-								<div class="fh5co-icon to-animate"><i class="icon-present"></i></div>
-								<div class="fh5co-desc">
-									<h3>100% Free</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>	
-							</div>
-							<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
-								<div class="fh5co-icon to-animate"><i class="icon-eye"></i></div>
-								<div class="fh5co-desc">
-									<h3>Retina Ready</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
-							<div class="clearfix visible-sm-block visible-xs-block"></div>
-							<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
-								<div class="fh5co-icon to-animate"><i class="icon-crop"></i></div>
-								<div class="fh5co-desc">
-									<h3>Fully Responsive</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
+<header id="fh5co-header" role="banner">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="navbar-header">
+                        <a aria-controls="navbar" aria-expanded="false" class="js-fh5co-nav-toggle fh5co-nav-toggle visible-xs-block"
+                           data-target="#fh5co-navbar" data-toggle="collapse" href="#"><i></i></a>
+                        <a class="navbar-brand" href="index.html">CSE 481V</a>
+                    </div>
+                    <div class="navbar-collapse collapse" id="fh5co-navbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="index.html"><span>Home <span class="border"></span></span></a></li>
+                            <li class="active"><a href="snippets.html"><span>Snippet Weeks<span
+                                    class="border"></span></span></a></li>
+                            <li><a href="dicom-uploader.html"><span>Dicom Uploader<span
+                                    class="border"></span></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- END .header -->
 
-							<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
-								<div class="fh5co-icon to-animate"><i class="icon-speedometer"></i></div>
-								<div class="fh5co-desc">
-									<h3>Lightweight</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>	
-							</div>
-							<div class="clearfix visible-sm-block visible-xs-block"></div>
-							<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
-								<div class="fh5co-icon to-animate"><i class="icon-heart"></i></div>
-								<div class="fh5co-desc">
-									<h3>Made with Love</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
-								<div class="fh5co-icon to-animate"><i class="icon-umbrella"></i></div>
-								<div class="fh5co-desc">
-									<h3>Eco Friendly</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
-							<div class="clearfix visible-sm-block visible-xs-block"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+<div id="fh5co-main">
+    <div class="fh5co-intro text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="intro-lead">Snippet Weeks</h1>
+                    <!-- <p class="">CSE  <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a></p> -->
+                </div>
+            </div>
+        </div>
+    </div>
 
-	</div> -->
+    <div id="fh5co-content">
+        <div class="container">
+            <div class="row">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-parent="#accordion" data-toggle="collapse" href="#collapse2">
+                                    Snippet Week 2</a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse2">
+                            <div class="panel-body">
+                                <iframe src="https://docs.google.com/document/d/e/2PACX-1vStm4hy6MLDesGNHw8n7MgZ1HitHwxi8APtdiBmDtnUb_03oP5BYR9xVYtTKgk1MrBnXkbyElhtLFwX/pub?embedded=true"
+                                        style="height:500px;width:100%;border:none;overflow:hidden;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-parent="#accordion" data-toggle="collapse" href="#collapse3">
+                                    Snippet Week 3</a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse3">
+                            <div class="panel-body">
+                                <iframe src="https://docs.google.com/document/d/e/2PACX-1vSgz8d2kS2zzfCHDuOoRFwD1r8nJfiJ43PsL21nGhkr3Wv7M8FtcUG75SA11NFtbFI-TAe5tOPhjiCn/pub?embedded=true"
+                                        style="height:500px;width:100%;border:none;overflow:hidden;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-parent="#accordion" data-toggle="collapse" href="#collapse4">
+                                    Snippet Week 4</a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse4">
+                            <div class="panel-body">
+                                <iframe src="https://docs.google.com/document/d/e/2PACX-1vSLb5HBzINM-jKhICRInKE4RfglJYzVGmD4-GyzAiXm-6oX1n4UO1Cn65ov-8u3C0OuyMPjDFJzFQin/pub?embedded=true"
+                                        style="height:500px;width:100%;border:none;overflow:hidden;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-parent="#accordion" data-toggle="collapse" href="#collapse5">
+                                    Snippet Week 5</a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse5">
+                            <div class="panel-body">
+                                <iframe src="https://docs.google.com/document/d/e/2PACX-1vRfTOjDrMGd-QFMnukYHSq-e9h8J4usoBKIB5S0I8bDD27zKbmM03qEduRkKURGLK3B9ooV1TSCHQTv/pub?embedded=true"
+                                        style="height:500px;width:100%;border:none;overflow:hidden;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-parent="#accordion" data-toggle="collapse" href="#collapse6">
+                                    Snippet Week 6</a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse6">
+                            <div class="panel-body">
+                                <iframe src="https://docs.google.com/document/d/e/2PACX-1vRwX9rgAlByXM3CjxWQDXEG9LF54TjlOJ01ER4sQhun83a1lmuFS6TCq69zCMUAC0NqzZksNhry2pXv/pub?embedded=true"
+                                        style="height:500px;width:100%;border:none;overflow:hidden;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-parent="#accordion" data-toggle="collapse" href="#collapse7">
+                                    Snippet Week 7</a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse7">
+                            <div class="panel-body">
+                                <iframe src="https://docs.google.com/document/d/e/2PACX-1vS5NCHXxYfxuMGYxXhjcAWGNpaBitmoZYLUso5oQsvc3wgF9AEPQ6vGLBSn9kLGGC4O_v9ljYbgX9kk/pub?embedded=true"
+                                        style="height:500px;width:100%;border:none;overflow:hidden;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-parent="#accordion" data-toggle="collapse" href="#collapse8">
+                                    Snippet Week 8</a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse8">
+                            <div class="panel-body">
+                                <iframe src="https://docs.google.com/document/d/e/2PACX-1vSVaGKkYYXOhJwOWQlPoCxGVaaU8FwbEVQ-QKM54IkLqPSGVXTo8ODHH6tAmGS6CaGjGQgw_Bk2C6YK/pub?embedded=true"
+                                        style="height:500px;width:100%;border:none;overflow:hidden;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-parent="#accordion" data-toggle="collapse" href="#collapse9">
+                                    Snippet Week 9</a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse9">
+                            <div class="panel-body">
+                                <iframe src="https://docs.google.com/document/d/e/2PACX-1vT63_AX4mRB8K4mjy489DGYMJ0q0i7yjG0CeDlLHfAI20_csNO2GsZ2roBlsy8MWgbaRsbA5lvzBX10/pub?embedded=true"
+                                        style="height:500px;width:100%;border:none;overflow:hidden;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<footer id="fh5co-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1 text-center">
-					<p>&copy; Clean Free HTML5. All Rights Reserved. <br>Created by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a></a></p>
-				</div>
-			</div>
-		</div>
-	</footer>
+    <!-- <div id="fh5co-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="row">
+                        <h2 class="section-lead text-center">Features</h2>
+                        <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
+                            <div class="fh5co-icon to-animate"><i class="icon-present"></i></div>
+                            <div class="fh5co-desc">
+                                <h3>100% Free</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
+                            <div class="fh5co-icon to-animate"><i class="icon-eye"></i></div>
+                            <div class="fh5co-desc">
+                                <h3>Retina Ready</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                            </div>
+                        </div>
+                        <div class="clearfix visible-sm-block visible-xs-block"></div>
+                        <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
+                            <div class="fh5co-icon to-animate"><i class="icon-crop"></i></div>
+                            <div class="fh5co-desc">
+                                <h3>Fully Responsive</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
+                            <div class="fh5co-icon to-animate"><i class="icon-speedometer"></i></div>
+                            <div class="fh5co-desc">
+                                <h3>Lightweight</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                            </div>
+                        </div>
+                        <div class="clearfix visible-sm-block visible-xs-block"></div>
+                        <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
+                            <div class="fh5co-icon to-animate"><i class="icon-heart"></i></div>
+                            <div class="fh5co-desc">
+                                <h3>Made with Love</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service">
+                            <div class="fh5co-icon to-animate"><i class="icon-umbrella"></i></div>
+                            <div class="fh5co-desc">
+                                <h3>Eco Friendly</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                            </div>
+                        </div>
+                        <div class="clearfix visible-sm-block visible-xs-block"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> -->
+
+    <footer id="fh5co-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <p>&copy; Clean Free HTML5. All Rights Reserved. <br>Created by <a href="http://freehtml5.co/"
+                                                                                       target="_blank">FREEHTML5.co</a></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Magnific Popup -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<!-- Main JS -->
-	<script src="js/main.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
 
-	
-	</body>
+
+</body>
 </html>

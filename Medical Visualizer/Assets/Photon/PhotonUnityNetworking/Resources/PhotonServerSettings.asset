@@ -39,6 +39,11 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - forceChangeColor
+  - rpcChangeColor
+  - rpcLoadSampleDicom
+  - addCrossSectionSphere
+  - finishedLoading
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

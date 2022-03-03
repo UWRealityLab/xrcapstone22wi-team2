@@ -29,20 +29,21 @@ namespace MedicalVisualizer
 
         private void Update()
         {
-            if (targetObject == null)
-                return;
+            // Sphere might be null if the client loads faster than the master that initialize the sphere through network
+            if (sphere1 != null && sphere2 != null && sphere3 != null && targetObject != null)
+            {
+                Material mat = targetObject.meshRenderer.sharedMaterial;
 
-            Material mat = targetObject.meshRenderer.sharedMaterial;
+                mat.EnableKeyword("CUTOUT_PLANE");
+                mat.SetMatrix("_CrossSectionMatrix", transform.worldToLocalMatrix * targetObject.transform.localToWorldMatrix);
+                Vector3 ab = sphere1.transform.position - sphere2.transform.position;
+                Vector3 bc = sphere2.transform.position - sphere3.transform.position;
 
-            mat.EnableKeyword("CUTOUT_PLANE");
-            mat.SetMatrix("_CrossSectionMatrix", transform.worldToLocalMatrix * targetObject.transform.localToWorldMatrix);
-            Vector3 ab = sphere1.transform.position - sphere2.transform.position;
-            Vector3 bc = sphere2.transform.position - sphere3.transform.position;
-
-            Vector3 center = (sphere1.transform.position + sphere2.transform.position + sphere3.transform.position) / 3;
-            Vector3 direction = Vector3.Cross(ab, bc);
-            transform.rotation = Quaternion.LookRotation(-direction);
-            transform.position = center;
+                Vector3 center = (sphere1.transform.position + sphere2.transform.position + sphere3.transform.position) / 3;
+                Vector3 direction = Vector3.Cross(ab, bc);
+                transform.rotation = Quaternion.LookRotation(-direction);
+                transform.position = center;
+            }
         }
 
         public void DestroyGameObject()

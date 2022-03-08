@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 namespace MedicalVisualizer
 {
@@ -15,21 +16,49 @@ namespace MedicalVisualizer
 
         public void ToDirectVolume()
         {
+            PhotonView photonView = PhotonView.Get(this);
+            photonView.RPC("rpcToDirectVolume", RpcTarget.All);
+            //CheckNull();
+            //volume.SetRenderMode(RenderMode.DirectVolumeRendering);
+        }
+
+        public void ToMaxIntensity()
+        {
+            PhotonView photonView = PhotonView.Get(this);
+            photonView.RPC("rpcToMaxIntensity", RpcTarget.All);
+            //CheckNull();
+            //volume.SetRenderMode(RenderMode.MaximumIntensityProjection);
+        }
+
+        public void ToIsoRendering()
+        {
+            PhotonView photonView = PhotonView.Get(this);
+            photonView.RPC("rpcToIsoRendering", RpcTarget.All);
+            //CheckNull();
+            //volume.SetRenderMode(RenderMode.IsosurfaceRendering);
+        }
+
+        [PunRPC]
+        void rpcToDirectVolume()
+        {
             CheckNull();
             volume.SetRenderMode(RenderMode.DirectVolumeRendering);
         }
 
-        public void ToMaxIntensity()
+        [PunRPC]
+        void rpcToMaxIntensity()
         {
             CheckNull();
             volume.SetRenderMode(RenderMode.MaximumIntensityProjection);
         }
 
-        public void ToIsoRendering()
+        [PunRPC]
+        void rpcToIsoRendering()
         {
             CheckNull();
             volume.SetRenderMode(RenderMode.IsosurfaceRendering);
         }
+
 
         // Update is called once per frame
         void Update()

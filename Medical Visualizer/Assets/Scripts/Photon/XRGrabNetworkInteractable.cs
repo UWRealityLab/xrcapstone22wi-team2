@@ -23,6 +23,17 @@ public class XRGrabNetworkInteractable : XRGrabInteractable
     protected override void OnSelectEntered(XRBaseInteractor interactor)
     {
         photonView.RequestOwnership();
+        GameObject locomotion = GameObject.Find("Locomotion System");
+        ActionBasedSnapTurnProvider snapTurn = locomotion.GetComponent<ActionBasedSnapTurnProvider>();
+        snapTurn.enabled = false;
         base.OnSelectEntered(interactor);
+    }
+
+    protected override void OnSelectExited(XRBaseInteractor interactor)
+    {
+        GameObject locomotion = GameObject.Find("Locomotion System");
+        ActionBasedSnapTurnProvider snapTurn = locomotion.GetComponent<ActionBasedSnapTurnProvider>();
+        snapTurn.enabled = true;
+        base.OnSelectExited(interactor);
     }
 }

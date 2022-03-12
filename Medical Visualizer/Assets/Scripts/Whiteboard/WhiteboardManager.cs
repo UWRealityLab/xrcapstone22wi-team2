@@ -8,6 +8,7 @@ using System.Net;
 using System.IO.Compression;
 using MedicalVisualizer;
 using UnityEngine.XR;
+using Photon.Pun;
 
 public class WhiteboardManager: MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class WhiteboardManager: MonoBehaviour
     private InputDevice rightDevice;
 
     private bool whiteboardGenerated;
+    private bool markerGenerated;
 
 
     void GetDevice()
@@ -38,6 +40,7 @@ public class WhiteboardManager: MonoBehaviour
     void Start()
     {
         whiteboardGenerated = false;
+        markerGenerated = false;
     }
 
     // Update is called once per frame
@@ -64,11 +67,23 @@ public class WhiteboardManager: MonoBehaviour
                 GenerateMarker();
             }
             whiteboardGenerated = !whiteboardGenerated;
+            markerGenerated = !markerGenerated;
         }
     }
 
     void GenerateWhiteboard()
     {
+        PhotonView photonView = PhotonView.Get(this);
+        photonView.RPC("rpcGenerateWhiteBoard", RpcTarget.All);
+    }
+
+    [PunRPC]
+    void rpcGenerateWhiteBoard()
+    {
+        if (whiteboardGenerated)
+        {
+            DestroyMarkers();
+        }
         GameObject quad = GameObject.Instantiate((GameObject)Resources.Load("Whiteboard"));
         quad.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         Whiteboard wb = quad.gameObject.GetComponent<Whiteboard>();
@@ -81,6 +96,17 @@ public class WhiteboardManager: MonoBehaviour
 
     void GenerateMarker()
     {
+        PhotonView photonView = PhotonView.Get(this);
+        photonView.RPC("rpcGenerateMarker", RpcTarget.All);
+    }
+
+    [PunRPC]
+    void rpcGenerateMarker()
+    {
+        if (markerGenerated)
+        {
+            DestroyMarkers();
+        }
         GameObject quad = GameObject.Instantiate((GameObject)Resources.Load("Marker"));
         quad.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
 
@@ -90,12 +116,21 @@ public class WhiteboardManager: MonoBehaviour
 
     void DestroyObjects()
     {
+        DestroyWhiteboards();
+        DestroyMarkers();
+    }
+
+    void DestroyWhiteboards()
+    {
         Whiteboard[] ws = GameObject.FindObjectsOfType<Whiteboard>();
         foreach (Whiteboard wb in ws)
         {
             wb.DestroyGameObject();
         }
+    }
 
+    void DestroyMarkers()
+    {
         WhiteboardMarker[] ms = GameObject.FindObjectsOfType<WhiteboardMarker>();
         foreach (WhiteboardMarker m in ms)
         {

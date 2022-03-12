@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Photon.Pun;
 
 public class WhiteboardMarker : MonoBehaviour
 {
@@ -75,6 +76,7 @@ public class WhiteboardMarker : MonoBehaviour
                     {
                         var lerpX = (int)Mathf.Lerp(_lastTouchPos.x, x, f);
                         var lerpY = (int)Mathf.Lerp(_lastTouchPos.y, y, f);
+                        PhotonView.Get(this).RPC("rpcSetPixel", RpcTarget.All, lerpX, lerpY, _penSize, _penSize, _colors);
                         _whiteboard.texture.SetPixels(lerpX, lerpY, _penSize, _penSize, _colors);
                     }
                     transform.rotation = _lastTouchRot;
@@ -88,6 +90,12 @@ public class WhiteboardMarker : MonoBehaviour
         }
         _whiteboard = null;
         _touchedLastFrame = false;
+    }
+
+    [PunRPC]
+    private void rpcSetPixel(int x, int y, int blockWidth, int blockHeight, Color[] colors)
+    {
+        _whiteboard.texture.SetPixels(x, y, blockWidth, blockHeight, colors);
     }
 
     public void DestroyGameObject()

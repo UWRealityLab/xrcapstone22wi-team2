@@ -47,6 +47,10 @@ MonoBehaviour:
   - rpcToDirectVolume
   - rpcToIsoRendering
   - rpcToMaxIntensity
+  - rpcGenerateMarker
+  - rpcGenerateWhiteBoard
+  - rpcSetPixel
+  - rpcErase
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

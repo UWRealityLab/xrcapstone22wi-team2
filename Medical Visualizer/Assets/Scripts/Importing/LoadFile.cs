@@ -14,6 +14,9 @@ using UnityEngine.UI;
 
 public class LoadFile : MonoBehaviour
 {
+    [SerializeField]
+    public WhiteboardManager wm;
+
     private bool leftButtonPressed;
     [SerializeField]
     private XRNode xrNodeLeft = XRNode.LeftHand;
@@ -213,6 +216,7 @@ public class LoadFile : MonoBehaviour
         csplane.sphere1 = PhotonView.Find(id1).gameObject;
         csplane.sphere2 = PhotonView.Find(id2).gameObject;
         csplane.sphere3 = PhotonView.Find(id3).gameObject;
+        wm.generateObjects();
     }
 
     void loadFromAttu(string fp, string ep, string dp, bool isOwner)
@@ -240,6 +244,10 @@ public class LoadFile : MonoBehaviour
         catch (IOException) { }
         // call api
         openDicomFromDir(extractPath, isOwner);
+        if (isOwner)
+        {
+            wm.generateObjects();
+        }
     }
     void openDicomFromDir(string dir, bool isOwner)
     {

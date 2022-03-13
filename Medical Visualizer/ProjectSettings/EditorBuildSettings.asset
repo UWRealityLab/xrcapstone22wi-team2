@@ -48,13 +48,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/SlotCar-Scene.unity
     guid: 711b38c07f2cf904f81b3422c67f1825
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Lobby.unity
     guid: 1a33b0fe71109694f80b3c265dc0245b
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Room 1.unity
     guid: 7cb96247014947e4b935370b14e866c8
   - enabled: 0
@@ -63,10 +63,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Visualize.unity
     guid: f7c13e11db0a9ab429ea18affb5df606
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/UI Test.unity
     guid: a02f1b2907803cc45a18fd3392ebab51
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Room 2.unity
     guid: e54dba0d05d3c5d42bd0221f97f9ed43
   m_configObjects:

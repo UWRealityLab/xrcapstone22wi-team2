@@ -41,48 +41,80 @@ public class WhiteboardManager: MonoBehaviour
     {
         whiteboardGenerated = false;
         markerGenerated = false;
+        if (!rightDevice.isValid)
+        {
+            GetDevice();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void generateObjects()
     {
         if (!rightDevice.isValid)
         {
             GetDevice();
         }
-        bool rightPrimaryButton = false;
-        if (rightDevice.TryGetFeatureValue(CommonUsages.primaryButton, out rightPrimaryButton) && rightPrimaryButton && !rightButtonPressed)
-        {
-            rightButtonPressed = true;
-        } else if (!rightPrimaryButton && rightButtonPressed)
-        {
-            rightButtonPressed = false;
-            if (whiteboardGenerated)
-            {
-                DestroyObjects();
-
-            } else
-            {
-                GenerateWhiteboard();
-                GenerateMarker();
-            }
-            whiteboardGenerated = !whiteboardGenerated;
-            markerGenerated = !markerGenerated;
-        }
+        GenerateWhiteboard();
+        GenerateMarker();
     }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //if (!rightDevice.isValid)
+        //{
+        //    GetDevice();
+        //}
+        //bool rightPrimaryButton = false;
+        //if (rightDevice.TryGetFeatureValue(CommonUsages.primaryButton, out rightPrimaryButton) && rightPrimaryButton && !rightButtonPressed)
+        //{
+        //    rightButtonPressed = true;
+        //} else if (!rightPrimaryButton && rightButtonPressed)
+        //{
+        //    rightButtonPressed = false;
+        //    if (whiteboardGenerated)
+        //    {
+        //        DestroyObjects();
+
+        //    } else
+        //    {
+        //        GenerateWhiteboard();
+        //        GenerateMarker();
+        //    }
+        //    whiteboardGenerated = !whiteboardGenerated;
+        //    markerGenerated = !markerGenerated;
+        //}
+    }
+
+    //void GenerateWhiteboard()
+    //{
+    //    PhotonView photonView = PhotonView.Get(this);
+    //    photonView.RPC("rpcGenerateWhiteBoard", RpcTarget.All);
+    //}
+
+    //[PunRPC]
+    //void rpcGenerateWhiteBoard()
+    //{
+    //    if (whiteboardGenerated)
+    //    {
+    //        DestroyWhiteboards();
+    //    }
+    //    GameObject quad = GameObject.Instantiate((GameObject)Resources.Load("Whiteboard"));
+    //    quad.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+    //    Whiteboard wb = quad.gameObject.GetComponent<Whiteboard>();
+
+    //    CrossSectionSphere[] css = GameObject.FindObjectsOfType<CrossSectionSphere>();
+    //    wb.sphere1 = css[0];
+    //    wb.sphere2 = css[1];
+    //    wb.sphere3 = css[2];
+
+    //    whiteboardGenerated = true;
+    //}
 
     void GenerateWhiteboard()
     {
-        PhotonView photonView = PhotonView.Get(this);
-        photonView.RPC("rpcGenerateWhiteBoard", RpcTarget.All);
-    }
-
-    [PunRPC]
-    void rpcGenerateWhiteBoard()
-    {
         if (whiteboardGenerated)
         {
-            DestroyMarkers();
+            DestroyWhiteboards();
         }
         GameObject quad = GameObject.Instantiate((GameObject)Resources.Load("Whiteboard"));
         quad.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
@@ -92,16 +124,33 @@ public class WhiteboardManager: MonoBehaviour
         wb.sphere1 = css[0];
         wb.sphere2 = css[1];
         wb.sphere3 = css[2];
+
+        whiteboardGenerated = true;
     }
+
+    //void GenerateMarker()
+    //{
+    //    PhotonView photonView = PhotonView.Get(this);
+    //    photonView.RPC("rpcGenerateMarker", RpcTarget.All);
+    //}
+
+    //[PunRPC]
+    //void rpcGenerateMarker()
+    //{
+    //    if (markerGenerated)
+    //    {
+    //        DestroyMarkers();
+    //    }
+    //    GameObject quad = GameObject.Instantiate((GameObject)Resources.Load("Marker"));
+    //    quad.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+
+    //    WhiteboardMarker wm = quad.gameObject.GetComponent<WhiteboardMarker>();
+    //    wm.hand = GameObject.FindGameObjectWithTag("RightHand");
+
+    //    markerGenerated = true;
+    //}
 
     void GenerateMarker()
-    {
-        PhotonView photonView = PhotonView.Get(this);
-        photonView.RPC("rpcGenerateMarker", RpcTarget.All);
-    }
-
-    [PunRPC]
-    void rpcGenerateMarker()
     {
         if (markerGenerated)
         {
@@ -112,6 +161,8 @@ public class WhiteboardManager: MonoBehaviour
 
         WhiteboardMarker wm = quad.gameObject.GetComponent<WhiteboardMarker>();
         wm.hand = GameObject.FindGameObjectWithTag("RightHand");
+
+        markerGenerated = true;
     }
 
     void DestroyObjects()
@@ -127,6 +178,7 @@ public class WhiteboardManager: MonoBehaviour
         {
             wb.DestroyGameObject();
         }
+        whiteboardGenerated = false;
     }
 
     void DestroyMarkers()
@@ -136,6 +188,21 @@ public class WhiteboardManager: MonoBehaviour
         {
             m.DestroyGameObject();
         }
+        markerGenerated = false;
+    }
+
+    public void EraseMarkers()
+    {
+        WhiteboardMarker[] ms = GameObject.FindObjectsOfType<WhiteboardMarker>();
+        foreach (WhiteboardMarker m in ms)
+        {
+            m.Erase();
+        }
+    }
+
+    public void debugLog()
+    {
+        Debug.Log("This is calleDADSSSSSSSSSSSSSSSSSSSSSS");
     }
 
 }

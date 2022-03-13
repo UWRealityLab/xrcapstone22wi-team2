@@ -23,6 +23,8 @@ public class WhiteboardMarker : MonoBehaviour
 
     private Quaternion _lastTouchRot;
 
+    private Texture2D originalTexture;
+
 
 
     // Start is called before the first frame update
@@ -31,6 +33,13 @@ public class WhiteboardMarker : MonoBehaviour
         _renderer = _tip.GetComponent<Renderer>();
         _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
         _tipHeight = _tip.localScale.y;
+        //if (_whiteboard == null)
+        //{
+        //_whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
+        //}
+        //Texture2D copyTexture = new Texture2D(_whiteboard.texture.width, _whiteboard.texture.height);
+        //copyTexture.SetPixels(_whiteboard.texture.GetPixels());
+        //originalTexture = copyTexture;
     }
 
     // Update is called once per frame
@@ -101,5 +110,20 @@ public class WhiteboardMarker : MonoBehaviour
     public void DestroyGameObject()
     {
         Destroy(gameObject);
+    }
+
+
+    public void Erase()
+    {
+        rpcErase();
+        PhotonView.Get(this).RPC("rpcErase", RpcTarget.Others);
+    }
+
+    [PunRPC]
+    private void rpcErase()
+    {
+        Texture2D copyTexture = new Texture2D(2048, 2048);
+        //copyTexture.SetPixels(originalTexture.GetPixels());
+        GameObject.Find("Whiteboard").GetComponent<Renderer>().material.mainTexture = copyTexture;
     }
 }

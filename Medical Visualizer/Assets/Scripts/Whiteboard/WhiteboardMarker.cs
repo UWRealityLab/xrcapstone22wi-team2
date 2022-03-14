@@ -85,7 +85,7 @@ public class WhiteboardMarker : MonoBehaviour
                     {
                         var lerpX = (int)Mathf.Lerp(_lastTouchPos.x, x, f);
                         var lerpY = (int)Mathf.Lerp(_lastTouchPos.y, y, f);
-                        PhotonView.Get(this).RPC("rpcSetPixel", RpcTarget.All, lerpX, lerpY, _penSize, _penSize);
+                        PhotonView.Get(this).RPC("rpcSetPixel", RpcTarget.Others, lerpX, lerpY, _penSize, _penSize);
                         _whiteboard.texture.SetPixels(lerpX, lerpY, _penSize, _penSize, _colors);
                     }
                     transform.rotation = _lastTouchRot;

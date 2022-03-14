@@ -85,7 +85,7 @@ public class WhiteboardMarker : MonoBehaviour
                     {
                         var lerpX = (int)Mathf.Lerp(_lastTouchPos.x, x, f);
                         var lerpY = (int)Mathf.Lerp(_lastTouchPos.y, y, f);
-                        PhotonView.Get(this).RPC("rpcSetPixel", RpcTarget.All, lerpX, lerpY, _penSize, _penSize, _colors);
+                        PhotonView.Get(this).RPC("rpcSetPixel", RpcTarget.All, lerpX, lerpY, _penSize, _penSize);
                         _whiteboard.texture.SetPixels(lerpX, lerpY, _penSize, _penSize, _colors);
                     }
                     transform.rotation = _lastTouchRot;
@@ -102,9 +102,9 @@ public class WhiteboardMarker : MonoBehaviour
     }
 
     [PunRPC]
-    private void rpcSetPixel(int x, int y, int blockWidth, int blockHeight, Color[] colors)
+    private void rpcSetPixel(int x, int y, int blockWidth, int blockHeight)
     {
-        _whiteboard.texture.SetPixels(x, y, blockWidth, blockHeight, colors);
+        _whiteboard.texture.SetPixels(x, y, blockWidth, blockHeight, _colors);
     }
 
     public void DestroyGameObject()

@@ -27,14 +27,14 @@ public class LoadFile : MonoBehaviour
     private InputDevice rightDevice;
 
 
-    private string filePath1 = "/dataset1.zip";
-    private string extractPath1 = "/dataset1";
-    private string downloadPath1 = "https://homes.cs.washington.edu/~winj/481V/dataset1_zip/dataset1.zip";
+    private string filePath1 = "/dicom1.zip";
+    private string extractPath1 = "/dicom1";
+    private string downloadPath1 = "https://firebasestorage.googleapis.com/v0/b/medical-imaging-fa58c.appspot.com/o/datasets%2Fdicom1.zip?alt=media&token=b1e82100-7f13-49e9-8b51-f92acbcc9a64";
 
 
-    private string filePath2 = "/dataset1_1.zip";
-    private string extractPath2 = "/dataset1_1";
-    private string downloadPath2 = "https://homes.cs.washington.edu/~winj/481V/dataset1_zip/dataset1_1.zip";
+    private string filePath2 = "/dicom2.zip";
+    private string extractPath2 = "/dicom2";
+    private string downloadPath2 = "https://firebasestorage.googleapis.com/v0/b/medical-imaging-fa58c.appspot.com/o/datasets%2Fdicom2.zip?alt=media&token=c886d084-e98c-4670-8b2b-bae19547269d";
 
     private VolumeObjectFactory.CrossSectionNetworkHelper cshelper;
     private CrossSectionPlane csplane;
